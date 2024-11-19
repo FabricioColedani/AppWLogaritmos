@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Logaritmos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&family=Raleway:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- FontAwesome -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./img/pNEj0a9pQdO0qfvL8srV3A.png">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <div class="background-circles">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+        <div class="circle circle-4"></div>
+        <div class="circle circle-5"></div>
+    </div>
+    <div class="falling-symbols">
+        <!-- Más símbolos matemáticos -->
+        <div class="symbol" style="left: 10%; animation-duration: 5s;">∑</div>
+        <div class="symbol" style="left: 15%; animation-duration: 6s;">√</div>
+        <div class="symbol" style="left: 20%; animation-duration: 7s;">∫</div>
+        <div class="symbol" style="left: 30%; animation-duration: 8s;">∞</div>
+        <div class="symbol" style="left: 40%; animation-duration: 9s;">∇</div>
+        <div class="symbol" style="left: 50%; animation-duration: 10s;">Δ</div>
+        <div class="symbol" style="left: 60%; animation-duration: 11s;">∂</div>
+        <div class="symbol" style="left: 70%; animation-duration: 12s;">θ</div>
+
+        
+    </div>
+
+    <div class="calculator">
+        <div class="explanation" id="explanation">
+            <!-- Audio Player -->
+        <div class="audio-controls">
+            <button id="prevBtn"><i class="fas fa-backward"></i></button>
+            <button id="playPauseBtn"><i class="fas fa-play"></i></button>
+            <button id="nextBtn"><i class="fas fa-forward"></i></button>
+            <button id="muteBtn"><i class="fas fa-volume-up"></i></button>
+        </div>
+
+        <audio id="audio-player" controls>
+            <source src="./sounds/ALL.mp3" type="audio/mp3">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+        <h1>Calculadora de Logaritmos</h1>
+        <p>Ingresa un número y selecciona la base para calcular el logaritmo.</p>
+        <input id="numberInput" type="number" placeholder="Número" />
+        <select id="baseSelect">
+            <option value="10">Base 10 (Logaritmo decimal)</option>
+            <option value="2">Base 2 (Logaritmo binario)</option>
+            <option value="e">Base e (Logaritmo natural)</option>
+        </select>
+        <button class="button" onclick="calculateLogarithm()">Calcular Logaritmo</button>
+        <p id="result" class="result"></p>
+
+            
+            <h2>Definición Matemática de los Logaritmos</h2>
+            <p>El logaritmo de un número en una base específica es el exponente al que la base debe elevarse para obtener ese número. Matemáticamente, esto se expresa como:</p>
+            <pre>
+                logₐ(x) = y  <=>  a^y = x
+            </pre>
+            <p>Esto significa que el logaritmo de <i>x</i> en base <i>a</i> es el valor <i>y</i>, tal que cuando <i>a</i> se eleva a la potencia de <i>y</i>, se obtiene <i>x</i>.</p>
+        
+
+            <h2>Historia de los Logaritmos</h2>
+            <p>Los logaritmos fueron introducidos por el matemático escocés John Napier en 1614, en su obra <i>Mirifici Logarithmorum Canonis Descriptio</i>. Su propósito inicial era facilitar los cálculos aritméticos complejos, especialmente para los astrónomos y los navegantes de la época, que necesitaban realizar multiplicaciones y divisiones con números muy grandes.</p>
+        
+            <p>Napier encontró que los logaritmos podían transformar multiplicaciones en sumas y divisiones en restas, lo que hacía los cálculos mucho más sencillos. Aunque originalmente los logaritmos se basaban en tablas precomputadas, el concepto de logaritmo ha evolucionado a lo largo de los siglos y ahora se utiliza ampliamente en las ciencias, la ingeniería y la informática.</p>
+        
+            
+            <h2>Propiedades de los Logaritmos</h2>
+            <ul>
+                <li><strong>Producto:</strong> <i>logₐ(x · y) = logₐ(x) + logₐ(y)</i> — El logaritmo de un producto es la suma de los logaritmos.</li>
+                <li><strong>Cociente:</strong> <i>logₐ(x ÷ y) = logₐ(x) − logₐ(y)</i> — El logaritmo de un cociente es la resta de los logaritmos.</li>
+                <li><strong>Potencia:</strong> <i>logₐ(xⁿ) = n · logₐ(x)</i> — El logaritmo de una potencia es el exponente multiplicado por el logaritmo de la base.</li>
+                <li><strong>Cambio de base:</strong> <i>logₐ(x) = logᵦ(x) / logᵦ(a)</i> — Puedes convertir logaritmos de una base a otra utilizando esta propiedad.</li>
+            </ul>
+        
+            <h2>Tipos de Logaritmos</h2>
+            <p>Existen varios tipos de logaritmos que se usan comúnmente:</p>
+            <ul>
+                <li><strong>Logaritmo Natural (ln):</strong> Este es el logaritmo en base <i>e</i>, donde <i>e</i> es una constante matemática aproximadamente igual a 2.71828. Los logaritmos naturales son utilizados en cálculos que involucran crecimiento exponencial, como en las ciencias naturales, economía, y física.</li>
+                <li><strong>Logaritmo Decimal (log₁₀):</strong> Este es el logaritmo en base 10, conocido también como logaritmo común. Se utiliza frecuentemente en aplicaciones de ingeniería y ciencia cuando se trabajan con números grandes.</li>
+                <li><strong>Logaritmo Binario (log₂):</strong> Este es el logaritmo en base 2, y es fundamental en informática. Es utilizado para medir la complejidad de algoritmos y en cálculos relacionados con la teoría de la información.</li>
+            </ul>
+        
+            <h2>Videos Explicativos</h2>
+            <p>A continuación, te mostramos algunos videos que explican los logaritmos de forma visual para que puedas profundizar más en el tema:</p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/3V7c7cZnx44" title="Logaritmos Explicados" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/9Q77N6dVhTk" title="Introducción a los Logaritmos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        
+    </div>
+
+   
+
+    <script src="scripts.js"></script>
+</body>
+</html>
